@@ -7,15 +7,12 @@ public class Rotor{
         position = _position;
         notch = _notch;
     }
-    public char encrypt(char toEncrypt){
-        incrementCount();
-        toEncrypt = Character.toUpperCase(toEncrypt);
-        char encryptedChar = rKey.charAt((int)toEncrypt - 65);
-        return encryptedChar;
-    }
-    public char staticencrypt(char toEncrypt){
-        toEncrypt = Character.toLowerCase(toEncrypt);
-        return toEncrypt;
+
+    public char rtl(char inputPin){
+       char pairPin = rKey.charAt((inputPin-65 + position)%26);
+        char outputChar = Character.toUpperCase(pairPin);
+        //return ((char)(((((int)toEncrypt -  65) + position)%26)+65));
+        return (outputChar);
     }
     private void incrementCount(){
         position++;

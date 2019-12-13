@@ -5,10 +5,11 @@ public class Enigma{
     public static void main(String[] args){
         System.out.println("Hi");
         setup();
-        System.out.println(r1.encrypt('c'));
+        System.out.println(r1.rtl('A'));
+        System.out.println(r2.rtl(r1.rtl('A')));
     }
     public static void setup(){
-        r1 = new Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 0, 'Q');
+        r1 = new Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 1, 'Q');
         r2 = new Rotor("AJDKSIRUXBLHWTMCQGZNPYFVOE", 0, 'E');
         r3 = new Rotor("BDFHJLCPRTXVZNYEIWGAKMUSQO", 0, 'V');
     }
